@@ -25,8 +25,8 @@
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Uc-ab-cVs"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNH-kj-DCD">
-                                <rect key="frame" x="263" y="358" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap mic to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNH-kj-DCD">
+                                <rect key="frame" x="233" y="358" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.10196078431372549" green="0.2196078431372549" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -42,6 +42,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2Zq-ef-8LX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1qT-Em-RMf"/>
+                            <constraint firstItem="yNH-kj-DCD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mnr-T0-Oej"/>
                             <constraint firstItem="Mmp-9e-GZf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OfT-qz-Pms"/>
                             <constraint firstItem="2Zq-ef-8LX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UyC-p4-QOg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mmp-9e-GZf" secondAttribute="bottom" constant="90" id="dbz-Yw-0nb"/>

@@ -22,8 +22,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     // MARK: View Controller lifecyle methods
     override func viewWillAppear(animated: Bool) {
         recordButton.enabled = true
-        stopButton.hidden = true
         stopButton.enabled = false
+        stopButton.hidden = true
     }
     
     // MARK: IBAction methods
@@ -31,7 +31,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Enable the stopButtona and make it visible
         stopButton.enabled = true
         stopButton.hidden = false
-        recordingInProgress.hidden = false
+        recordingInProgress.text = "Recording"
         recordButton.enabled = false
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
