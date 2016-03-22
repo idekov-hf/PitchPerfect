@@ -12,6 +12,7 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController {
     
     // MARK: Properties
+    
     var audioPlayer: AVAudioPlayer!
     var receivedAudio: RecordedAudio!
     
@@ -19,7 +20,8 @@ class PlaySoundsViewController: UIViewController {
     var audioFile: AVAudioFile!
     var audioPlayerNode: AVAudioPlayerNode!
     
-    // Mark: View Controller lifecyle and memory warning methods
+    // Mark: View Controller lifecyle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -29,23 +31,15 @@ class PlaySoundsViewController: UIViewController {
         audioEngine = AVAudioEngine()
         audioFile = try! AVAudioFile(forReading: receivedAudio.filePathURL)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: IBAction methods
+    
     @IBAction func playSlowAudio(sender: UIButton) {
-        audioPlayer.stop()
-        audioPlayer.rate = 0.5
-        playAudioFromStart()
+        playAudioWithVariableRate(0.5)
     }
     
     @IBAction func playFastAudio(sender: UIButton) {
-        audioPlayer.stop()
-        audioPlayer.rate = 2.0
-        playAudioFromStart()
+        playAudioWithVariableRate(1.5)
     }
 
     @IBAction func stopAudio(sender: UIButton) {
@@ -62,6 +56,14 @@ class PlaySoundsViewController: UIViewController {
     }
     
     // Mark: Helper methods
+    
+    func playAudioWithVariableRate(rate: Float) {
+        audioPlayer.stop()
+        audioPlayer.rate = rate
+        audioPlayer.currentTime = 0.0
+        audioPlayer.play()
+    }
+    
     func playAudioWithVariablePitch(pitch: Float) {
         audioPlayer.stop()
         audioEngine.stop()
@@ -80,11 +82,6 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         try! audioEngine.start()
         audioPlayerNode.play()
-    }
-    
-    func playAudioFromStart() {
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
     }
     
 }

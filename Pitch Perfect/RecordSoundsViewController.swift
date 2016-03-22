@@ -19,24 +19,17 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
     
-    // MARK: View Controller lifecyle and memory warning methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    // MARK: View Controller lifecyle methods
     override func viewWillAppear(animated: Bool) {
         recordButton.enabled = true
         stopButton.hidden = true
+        stopButton.enabled = false
     }
     
     // MARK: IBAction methods
     @IBAction func recordAudio(sender: UIButton) {
+        // Enable the stopButtona and make it visible
+        stopButton.enabled = true
         stopButton.hidden = false
         recordingInProgress.hidden = false
         recordButton.enabled = false
@@ -75,7 +68,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             recordedAudio.title = recorder.url.lastPathComponent
             
             // Move to the next scene aka perform segue.
-            self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
+            performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         }
         else {
             print("Recording was not successful")
